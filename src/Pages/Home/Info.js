@@ -6,7 +6,7 @@ import phone from '../../icons/phone.svg';
 
 const Info = () => {
     return (
-        <div className='mt-11 grid grid-cols-1 lg:grid-cols-3 gap-5'>
+        <div className='px-12 mt-11 grid grid-cols-1 lg:grid-cols-3 gap-5'>
 
             <InfoCard bgClass="bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500" cardTitle="Opening Hours" cardDescription='Our office is open from 9.00am – 5.00pm, Monday to Friday.' img={clock}></InfoCard>
 
