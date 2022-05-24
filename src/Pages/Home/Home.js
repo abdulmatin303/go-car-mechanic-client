@@ -1,4 +1,5 @@
 import React from 'react';
+import Tools from '../Tools/Tools';
 import Banner from './Banner';
 import Contact from './Contact';
 import Footer from './Footer';
@@ -9,6 +10,7 @@ const Home = () => {
     return (
         <div>
             <Banner></Banner>
+            <Tools></Tools>
             <Review></Review>
             <Info></Info>
             <Contact></Contact>

@@ -1,0 +1,57 @@
+[
+    {
+      "_id": 1,
+      "name": "Bumper",
+      "available": 1000,
+      "minimum": 500,
+      "price": 1920,
+      "description": "This Mgp Front Bumper, Bumper Front 71711M74L00 from Mgp is compatible with your car.",
+      "img": "https://i.ibb.co/5rQcCSy/bumper.jpg"
+
+    },
+    {
+      "_id": 2,
+      "name": "Door",
+      "available": 2000,
+      "minimum": 500,
+      "price": 10590,
+      "description": "This Mgp Door, Panel Assy, Rear Door Rh 68003M74K00 is compatible with your car.",
+      "img": "https://i.ibb.co/NWfLdjV/door.jpg"
+    },
+    {
+      "_id": 3,
+      "name": "Engine Block",
+      "available": 3000,
+      "minimum": 500,
+      "price": 3457,
+      "description": "This Mobis (Hyundai, Kia) Complete Engine, Bracket Assy-Roll Stopper,Fr 2191025400 from Mobis (Hyundai, Kia) is compatible with your car. ",
+      "img": "https://i.ibb.co/QDDsQfB/Engine-Block.jpg"
+    },
+    {
+      "_id": 4,
+      "name": "Injection Pump",
+      "available": 3500,
+      "minimum": 500,
+      "price": 49210,
+      "description": "This Toyota Injection Pump, Pump Assy Injection Or Supply 221001C400 from Toyota is compatible with your car.",
+      "img": "https://i.ibb.co/vBL29m6/Injection-Pump.jpg"
+    },
+    {
+      "_id": 5,
+      "name": "Mirror",
+      "available": 2300,
+      "minimum": 500,
+      "price": 140,
+      "description": "GoMechanic Spares is your one-stop solution for all the spare parts your car needs. This Motherson Mirror, Side Rear View Mirror Right Rvms035Or from Motherson is compatible with your car. ",
+      "img": "https://i.ibb.co/XWVdFnT/mirror.jpg"
+    },
+    {
+      "_id": 6,
+      "name": "Piston",
+      "available": 1360,
+      "minimum": 500,
+      "price": 1771,
+      "description": "This Mobis (Hyundai, Kia) Piston, Piston & Pin Assy 2304103220 is compatible with your car. ",
+      "img": "https://i.ibb.co/pQR7dy8/piston.jpg"
+    }
+  ]
