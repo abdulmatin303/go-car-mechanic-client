@@ -8,17 +8,22 @@ import Tools from './Pages/Tools/Tools';
 import ToolsDetails from './Pages/Tools/ToolsDetails';
 import NotFound from './Pages/NotFound/NotFound';
 import SignUp from './Pages/Login/SignUp';
+import RequireAuth from './Pages/Login/RequireAuth';
 
 
 function App() {
   return (
     <div>
-      
-        <Navbar></Navbar>
-        <Routes>
+
+      <Navbar></Navbar>
+      <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
-        <Route path="/tools" element={<Tools />} />
+        <Route path="/tools" element={
+          <RequireAuth>
+            <Tools />
+          </RequireAuth>
+        } />
         <Route path='/tools/:toolsId' element={<ToolsDetails></ToolsDetails>}></Route>
         <Route path="about" element={<About />} />
         <Route path="login" element={<Login></Login>}></Route>

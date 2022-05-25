@@ -17,9 +17,22 @@ const Navbar = () => {
     <li className='font-medium'><Link to='review'>Review</Link></li>
     <li className='font-medium'><Link to='contact'>Contact</Link></li>
     <li className='font-medium'><Link to='about'>About</Link></li>
-    <li className='font-medium'>{user ?
-      <button class="btn btn-ghost" onClick={logout}>Sign Out</button>
-      : <Link to='login'>Login</Link>}</li>
+
+    {user ? <div className='flex justify-items-center justify-center'>
+      <li className='mt-3'>{user.displayName}</li>
+      <li className="btn btn-ghost pt-4" onClick={logout}>Sign Out</li>
+
+    </div>
+       
+      : <Link className='mt-3' to='login'>Login</Link>}
+
+    {/* <li className='font-medium'>{user ? <div>
+      <li>{user.displayName}</li>
+      <li class="btn btn-ghost" onClick={logout}>Sign Out</li>
+
+    </div>
+       
+      : <Link to='login'>Login</Link>}</li> */}
   </>
   return (
     <div className="navbar bg-base-100">

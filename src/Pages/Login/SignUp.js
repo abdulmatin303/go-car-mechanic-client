@@ -129,7 +129,7 @@ const SignUp = () => {
                         <input className='btn w-full max-w-xs text-white' type="submit" value="Sign Up" />
                     </form>
 
-                    <p><small>Already have an account? <Link className='text-secondary' to="/login">Please login</Link></small></p>
+                    <p><small>Already have an account? <Link className='text-violet-700' to="/login">Please login</Link></small></p>
 
                     <div class="divider">OR</div>
 
