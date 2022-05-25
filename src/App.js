@@ -19,12 +19,12 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
-        <Route path="/tools" element={
+        <Route path="/tools" element={<Tools />}/>
+        <Route path='/tools/:toolsId' element={
           <RequireAuth>
-            <Tools />
+            <ToolsDetails></ToolsDetails>
           </RequireAuth>
-        } />
-        <Route path='/tools/:toolsId' element={<ToolsDetails></ToolsDetails>}></Route>
+        }></Route>
         <Route path="about" element={<About />} />
         <Route path="login" element={<Login></Login>}></Route>
         <Route path="signup" element={<SignUp></SignUp>}></Route>
