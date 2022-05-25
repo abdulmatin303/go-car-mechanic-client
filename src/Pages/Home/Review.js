@@ -1,27 +1,13 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import ReviewCard from './ReviewCard';
 
 const Review = () => {
-    const reviews = [
-        {
-            _id: 1,
-            name: "Elon Musk",
-            description: 'Lorem ipsum dolor sit amet.',
-            img: 'https://i.ibb.co/Fz1ckfc/elon-musk.jpg'
-        },
-        {
-            _id: 2,
-            name: "Mark Zuckerberg",
-            description: 'Lorem ipsum dolor sit amet.',
-            img: 'https://i.ibb.co/S3hXtjT/mark.jpg'
-        },
-        {
-            _id: 3,
-            name: "Steve Jobs",
-            description: 'Lorem ipsum dolor sit amet.',
-            img: 'https://i.ibb.co/pKhyTKD/stevejobs.jpg'
-        }
-    ]
+    const [services, setServices] = useState([])
+    useEffect(() => {
+        fetch('http://localhost:5000/review')
+            .then(res => res.json())
+            .then(data => setServices(data));
+    }, [])
     return (
         <section className='my-28 px-12'>
 
@@ -34,10 +20,11 @@ const Review = () => {
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
 
                     {
-                        reviews.map(review => <ReviewCard key={reviews._id}
+                        services.map(review => <ReviewCard 
                             review={review}></ReviewCard>
                         )
                     }
+                
 
                 </div>
 

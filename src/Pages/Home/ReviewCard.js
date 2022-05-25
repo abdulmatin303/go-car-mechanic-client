@@ -1,26 +1,37 @@
 import React from 'react';
-
+import Rating from 'react-rating';
+import './Review.css'
 const ReviewCard = ({ review }) => {
   return (
     <div className="card w-96 bg-base-100 shadow-xl">
       <div className="card-body">
 
-        <p>{review.description}</p>
-        
         <div className="card-actions flex items-center justify-evenly">
-          
+
           {/* avatar  */}
           <div className="avatar">
             <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-              <img src={review.img} alt="" />
+              <img src="https://api.lorem.space/image/face?hash=3174" alt='' />
             </div>
           </div>
-          
+
           {/* review name  */}
           <div>
             <h2 className="card-title">{review.name}</h2>
           </div>
+
         </div>
+
+        <div className='mt-2'>
+          <p>{review.description}</p>
+          <Rating
+            initialRating={review.rating}
+            emptySymbol="far fa-star icon-color"
+            fullSymbol="fas fa-star icon-color"
+            readonly
+          />
+        </div>
+
       </div>
     </div>
   );

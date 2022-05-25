@@ -1,0 +1,21 @@
+.add-review form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.add-review form input{
+    width: 40%;
+    margin-bottom: 10px;
+    border: 2px solid gray;
+}
+.add-review form  textarea{
+    width: 40%;
+    margin-bottom: 10px;
+    border: 2px solid gray;
+}
+.add-review form  select{
+    width: 40%;
+    margin-bottom: 10px;
+    border: 2px solid gray;
+}
