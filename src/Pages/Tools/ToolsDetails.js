@@ -29,7 +29,7 @@ const ToolsDetails = () => {
 
 
     return (
-        <div className='flex justify-evenly'>
+        <div className='flex '>
 
             <div>
                 <div class="card w-96 bg-base-100 shadow-xl">

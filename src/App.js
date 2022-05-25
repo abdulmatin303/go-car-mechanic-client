@@ -7,6 +7,7 @@ import Login from './Pages/Login/Login';
 import Tools from './Pages/Tools/Tools';
 import ToolsDetails from './Pages/Tools/ToolsDetails';
 import NotFound from './Pages/NotFound/NotFound';
+import SignUp from './Pages/Login/SignUp';
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
         <Route path='/tools/:toolsId' element={<ToolsDetails></ToolsDetails>}></Route>
         <Route path="about" element={<About />} />
         <Route path="login" element={<Login></Login>}></Route>
+        <Route path="signup" element={<SignUp></SignUp>}></Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
 
