@@ -18,13 +18,17 @@ const Navbar = () => {
     <li className='font-medium'><Link to='contact'>Contact</Link></li>
     <li className='font-medium'><Link to='about'>About</Link></li>
 
+    {
+      user && <li className='font-medium'><Link to='/dashboard'>Dashboard</Link></li>
+    }
+
     {user ? <div className='flex justify-items-center justify-center'>
       <li className='mt-3'>{user.displayName}</li>
       <li className="btn btn-ghost pt-4" onClick={logout}>Sign Out</li>
 
     </div>
-       
-      : <Link className='mt-3' to='login'>Login</Link>}
+
+      : <Link className='mt-3' to='login'><span className='font-medium hover:bg-cyan-500 hover:p-2 hover:rounded'>Login</span></Link>}
 
   </>
   return (
@@ -44,6 +48,12 @@ const Navbar = () => {
         <ul className="menu menu-horizontal p-0">
           {menuItems}
         </ul>
+      </div>
+      <div className="navbar-end">
+      <label tabIndex="1" for="dashboard-sidebar" className="btn btn-ghost lg:hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+          </label>
+        
       </div>
 
     </div>

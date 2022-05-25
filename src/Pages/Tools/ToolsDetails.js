@@ -17,18 +17,47 @@ const ToolsDetails = () => {
 
 
     const minimumRef = useRef('');
+    const [user, loading, error] = useAuthState(auth);
 
 
     const handleOrderDetails = event => {
         event.preventDefault();
+        
         const minimum = minimumRef.current.value;
         const date = event.target.date.value;
-        console.log(minimum,date);
+        const name = event.target.name.value;
+        const email = event.target.email.value;
+        const address = event.target.address.value;
+
+        console.log(minimum,date,name,email,address);
+
+        const order = {
+            orderId: orderDetails?._id,
+            orderName: name,
+            orderEmail: email,
+            orderAddress: address,
+            orderDate: date,
+            orderProduct: orderDetails?.name
+        }
+
+        console.log(order.orderName);
+
+        fetch('http://localhost:5000/order',{
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(order)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+        })
     }
 
     // const myDate = useContext(DateContext);
 
-    const [user, loading, error] = useAuthState(auth);
+    
     
 
 
@@ -57,14 +86,18 @@ const ToolsDetails = () => {
 
 
                     <input type="text" name='name' defaultValue={user.displayName} disabled placeholder="Your Name" class="input input-bordered w-full max-w-xs" />
+
                     <input type="text" name='email' defaultValue={user.email} disabled placeholder="Your Email" class="input input-bordered w-full max-w-xs" />
 
 
-                    <input type="number" ref={minimumRef} defaultValue={orderDetails?.minimum} name='minimum' placeholder="Your minimum order" class="input input-bordered w-full max-w-xs" />
+                    <input type="number" name='minimum' ref={minimumRef} defaultValue={orderDetails?.minimum}  placeholder="Your minimum order" class="input input-bordered w-full max-w-xs" />
 
                     <input type="text" name='phone' placeholder="Your Phone Number" class="input input-bordered w-full max-w-xs" />
-                    <input type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs" />
+
+                    <input type="text" name="address" placeholder="Your Address" class="input input-bordered w-full max-w-xs" />
+
                     <input type="date" name="date" placeholder="Select when you need this order" class="input input-bordered w-full max-w-xs" />
+
                     <input type="submit" value="submit" placeholder="Type here" class="btn btn-secondary w-full max-w-xs" />
                 </form>
             </div>
