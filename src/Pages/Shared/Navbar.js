@@ -26,13 +26,6 @@ const Navbar = () => {
        
       : <Link className='mt-3' to='login'>Login</Link>}
 
-    {/* <li className='font-medium'>{user ? <div>
-      <li>{user.displayName}</li>
-      <li class="btn btn-ghost" onClick={logout}>Sign Out</li>
-
-    </div>
-       
-      : <Link to='login'>Login</Link>}</li> */}
   </>
   return (
     <div className="navbar bg-base-100">

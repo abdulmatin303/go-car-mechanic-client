@@ -1,6 +1,8 @@
 import { format } from 'date-fns';
 import React, { useContext, useEffect, useRef, useState } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { useParams } from 'react-router-dom';
+import auth from '../../firebase.init';
 import { DateContext } from './Tools';
 const ToolsDetails = () => {
     const { toolsId } = useParams();
@@ -25,6 +27,8 @@ const ToolsDetails = () => {
     }
 
     // const myDate = useContext(DateContext);
+
+    const [user, loading, error] = useAuthState(auth);
     
 
 
@@ -52,11 +56,12 @@ const ToolsDetails = () => {
                     <h3 className='text-3xl'>Order For <span className='text-violet-700'>{orderDetails?.name}</span> </h3>
 
 
+                    <input type="text" name='name' defaultValue={user.displayName} disabled placeholder="Your Name" class="input input-bordered w-full max-w-xs" />
+                    <input type="text" name='email' defaultValue={user.email} disabled placeholder="Your Email" class="input input-bordered w-full max-w-xs" />
+
+
                     <input type="number" ref={minimumRef} defaultValue={orderDetails?.minimum} name='minimum' placeholder="Your minimum order" class="input input-bordered w-full max-w-xs" />
 
-
-                    <input type="text" name='name' placeholder="Your Name" class="input input-bordered w-full max-w-xs" />
-                    <input type="text" name='email' placeholder="Your Email" class="input input-bordered w-full max-w-xs" />
                     <input type="text" name='phone' placeholder="Your Phone Number" class="input input-bordered w-full max-w-xs" />
                     <input type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs" />
                     <input type="date" name="date" placeholder="Select when you need this order" class="input input-bordered w-full max-w-xs" />
