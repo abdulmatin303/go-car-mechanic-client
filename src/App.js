@@ -15,6 +15,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Dashboard from './Pages/Dashboard/Dashboard';
 import MyOrder from './Pages/Dashboard/MyOrder';
 import MyReview from './Pages/Dashboard/MyReview';
+import Contact from './Pages/Home/Contact';
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
         <Route path="/tools" element={<Tools />} />
+        <Route path="/contact" element={<Contact />} />
 
         <Route path='/tools/:toolsId' element={
           <RequireAuth>

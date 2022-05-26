@@ -14,7 +14,6 @@ const Navbar = () => {
   const menuItems = <>
     <li className='font-medium'><Link to='home'>Home</Link></li>
     <li className='font-medium'><Link to='tools'>Tools</Link></li>
-    <li className='font-medium'><Link to='review'>Review</Link></li>
     <li className='font-medium'><Link to='contact'>Contact</Link></li>
     <li className='font-medium'><Link to='about'>About</Link></li>
 
@@ -22,9 +21,11 @@ const Navbar = () => {
       user && <li className='font-medium'><Link to='/dashboard'>Dashboard</Link></li>
     }
 
-    {user ? <div className='flex justify-items-center justify-center'>
-      <li className='mt-3'>{user.displayName}</li>
+    {user ? <div className='lg:flex'>
+      
       <li className="btn btn-ghost pt-4" onClick={logout}>Sign Out</li>
+      <li className='mt-3 text-emerald-700'>{user.displayName}</li>
+      
 
     </div>
 

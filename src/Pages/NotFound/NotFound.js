@@ -1,9 +1,12 @@
 import React from 'react';
-
+import notFound from '../../icons/NotFound.jpg';
 const NotFound = () => {
     return (
-        <div>
-            <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim excepturi ut possimus porro itaque, nesciunt deleniti veniam totam temporibus iure amet nisi omnis pariatur nihil obcaecati dolore earum? Sit alias iure adipisci enim voluptates odit labore inventore iusto deleniti reprehenderit suscipit accusantium, modi quas! Aliquid maxime, nihil impedit, necessitatibus placeat molestias harum officiis iste ex perferendis laborum! Provident adipisci libero inventore illo ipsam consectetur nihil rem necessitatibus nostrum corrupti molestiae, temporibus vel cupiditate nobis commodi suscipit minus eos minima veniam quia sunt pariatur? Qui similique hic vero nisi aperiam, quae quos dicta quasi, provident eos cumque, placeat corrupti asperiores tempore?</h2>
+        <div className='mt-5 flex justify-center justify-items-center'>
+            <div class="card w-96 bg-base-100 shadow-xl image-full">
+                <figure><img src={notFound} alt="Shoes" /></figure>
+
+            </div>
         </div>
     );
 };

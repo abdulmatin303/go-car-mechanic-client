@@ -16,7 +16,13 @@ const AvailableTools = () => {
     const myDate = useContext(DateContext);
 
     return (
-        <div className='px-12'>
+        <div className='px-12 mt-8'>
+
+
+            <h2 className="text-3xl font-bold text-center text-emerald-400">Available Car Tools</h2>
+            <h4 className='text-xl text-center  text-teal-600'>Order what you need</h4>
+
+
             {/* <h2 className='text-center text-3xl text-teal-300 pt-5'>Available Tools on {format(myDate, 'PP')}</h2> */}
 
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
@@ -24,7 +30,7 @@ const AvailableTools = () => {
                     services.map(service => <Service
                         key={service._id}
                         service={service}
-                        
+
                     ></Service>)
                 }
             </div>
