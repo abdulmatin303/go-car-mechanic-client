@@ -6,7 +6,7 @@ const Service = ({ service }) => {
     const { _id, name, price, img, description, minimum, available } = service;
     const navigate = useNavigate();
     const handleServiceDetail = id => {
-        console.log("ssee id: ",id);
+        // console.log("ssee id: ",id);
         navigate(`/tools/${_id}`);
     }
 

@@ -10,7 +10,7 @@ const AddTools = () => {
     const imageStorageKey = '50a06926a134a6cb570feab334799660';
 
     const onSubmit = async data => {
-        console.log('data:', data);
+        // console.log('data:', data);
 
         // for imageBB 
         const image = data.image[0];
@@ -46,7 +46,7 @@ const AddTools = () => {
                 .then(inserted => {
                     if(inserted.insertedId){
                         toast.success('Tools Added in Database');
-                        console.log(productInfo);
+                        // console.log(productInfo);
                         reset();
                     }
                     else {

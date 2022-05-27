@@ -10,7 +10,7 @@ const MyProfile = () => {
     const imageStorageKey = '50a06926a134a6cb570feab334799660';
 
     const onSubmit = async data => {
-        console.log('data:', data);
+        // console.log('data:', data);
 
         // for imageBB 
         const image = data.image[0];
@@ -46,7 +46,7 @@ const MyProfile = () => {
                 .then(inserted => {
                     if(inserted.insertedId){
                         toast.success('My profile Created Successfully');
-                        console.log(profileInfo);
+                        // console.log(profileInfo);
                         reset();
                     }
                     else {

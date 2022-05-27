@@ -23,6 +23,7 @@ const Dashboard = () => {
                     <li><Link to='/dashboard/myProfile'>Create Profile</Link></li>
                     <li><Link to='/dashboard/showAllProfile'>Show All Profile</Link></li>
                     <li><Link to='/dashboard/addTools'>Add Tools</Link></li>
+                    <li><Link to='/dashboard/manageTools'>Manage Tools</Link></li>
                 </ul>
 
             </div>

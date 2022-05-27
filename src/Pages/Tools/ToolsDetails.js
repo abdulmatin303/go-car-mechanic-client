@@ -6,7 +6,7 @@ import auth from '../../firebase.init';
 import { DateContext } from './Tools';
 const ToolsDetails = () => {
     const { toolsId } = useParams();
-    console.log('tools: ',toolsId);
+    // console.log('tools: ',toolsId);
     const [toolDetail, setToolDetail] = useState([])
     useEffect(() => {
         fetch('http://localhost:5000/service')
