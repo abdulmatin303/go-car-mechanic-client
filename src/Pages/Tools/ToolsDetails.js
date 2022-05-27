@@ -6,13 +6,14 @@ import auth from '../../firebase.init';
 import { DateContext } from './Tools';
 const ToolsDetails = () => {
     const { toolsId } = useParams();
+    console.log('tools: ',toolsId);
     const [toolDetail, setToolDetail] = useState([])
     useEffect(() => {
-        fetch('/services.json')
+        fetch('http://localhost:5000/service')
             .then(res => res.json())
             .then(data => setToolDetail(data))
     }, [])
-    const orderDetails = toolDetail.find(singleTool => singleTool._id === Number(toolsId))
+    const orderDetails = toolDetail.find(singleTool => singleTool._id === (toolsId))
     //  console.log(orderDetails);
 
 

@@ -13,7 +13,7 @@ const AvailableTools = () => {
             .then(data => setServices(data));
     }, [])
 
-    const myDate = useContext(DateContext);
+    // const myDate = useContext(DateContext);
 
     return (
         <div className='px-12 mt-12'>

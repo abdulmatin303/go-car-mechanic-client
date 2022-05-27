@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 
 
-const MyProfile = () => {
+const AddTools = () => {
 
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
 
@@ -26,27 +26,27 @@ const MyProfile = () => {
             // console.log("imgBB Result",result)
             if(result.success){
                 const img = result.data.url;
-                const profileInfo = {
+                const productInfo = {
                     name: data.name,
-                    email: data.email,
-                    education: data.education,
-                    location: data.location,
-                    phone: data.phone,
+                    available: data.available,
+                    minimum: data.minimum,
+                    price: data.price,
+                    description: data.description,
                     img:img
                 }
 
-                fetch('http://localhost:5000/myProfile',{
+                fetch('http://localhost:5000/service',{
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
                     },
-                    body: JSON.stringify(profileInfo)
+                    body: JSON.stringify(productInfo)
                 })
                 .then(res=> res.json())
                 .then(inserted => {
                     if(inserted.insertedId){
-                        toast.success('My profile Created Successfully');
-                        console.log(profileInfo);
+                        toast.success('Tools Added in Database');
+                        console.log(productInfo);
                         reset();
                     }
                     else {
@@ -61,13 +61,11 @@ const MyProfile = () => {
     }
 
 
-    
+   
 
 
     return (
         <div>
-
-
             <div className=''>
                 <form onSubmit={handleSubmit(onSubmit)}>
 
@@ -91,63 +89,21 @@ const MyProfile = () => {
                         </label>
                     </div>
 
-                    <div class="form-control w-full max-w-xs">
-                        <label class="label">
-                            <span class="label-text">Email</span>
-                        </label>
-                        <input
-                            type="email"
-                            placeholder="Your Email"
-                            class="input input-bordered w-full max-w-xs"
-                            {...register("email", {
-                                required: {
-                                    value: true,
-                                    message: 'Email is Required'
-                                },
-                                pattern: {
-                                    value: /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/,
-                                    message: 'Provide a valid Email'
-                                }
-                            })}
-                        />
-                        <label class="label">
-                            {errors.email?.type === 'required' && <span class="label-text-alt text-red-500">{errors.email.message}</span>}
-
-                            {errors.email?.type === 'pattern' && <span class="label-text-alt text-red-500">{errors.email.message}</span>}
-                        </label>
-                    </div>
-
-                    <div class="form-control w-full max-w-xs">
-                        <label class="label">
-                            <span class="label-text">Education</span>
-                        </label>
-
-                        <select {...register('education')} class=" input-bordered select w-full max-w-xs">
-
-                            <option>Masters</option>
-                            <option>Bachelor</option>
-                            <option>HSC</option>
-                            <option>SSC</option>
-                            <option>JSC</option>
-
-                        </select>
-
-
-                    </div>
+                    
 
 
                     <div class="form-control w-full max-w-xs">
                         <label class="label">
-                            <span class="label-text">Location</span>
+                            <span class="label-text">Description</span>
                         </label>
                         <input
                             type="text"
-                            placeholder="Your Location"
+                            placeholder="Description"
                             class="input input-bordered w-full max-w-xs"
-                            {...register("location", {
+                            {...register("description", {
                                 required: {
                                     value: true,
-                                    message: 'Location is Required'
+                                    message: 'Description is Required'
                                 }
                             })}
                         />
@@ -158,16 +114,58 @@ const MyProfile = () => {
 
                     <div class="form-control w-full max-w-xs">
                         <label class="label">
-                            <span class="label-text">Phone Number</span>
+                            <span class="label-text">Availabilie</span>
                         </label>
                         <input
                             type="number"
-                            placeholder="Phone Number"
+                            placeholder="Availabilie"
                             class="input input-bordered w-full max-w-xs"
-                            {...register("phone", {
+                            {...register("available", {
                                 required: {
                                     value: true,
-                                    message: 'Location is Required'
+                                    message: 'Availabilie Required'
+                                }
+                            })}
+                        />
+                        <label class="label">
+                            {errors.name?.type === 'required' && <span class="label-text-alt text-red-500">{errors.name.message}</span>}
+                        </label>
+                    </div>
+
+
+                    <div class="form-control w-full max-w-xs">
+                        <label class="label">
+                            <span class="label-text">Minimum</span>
+                        </label>
+                        <input
+                            type="number"
+                            placeholder="Minimum"
+                            class="input input-bordered w-full max-w-xs"
+                            {...register("minimum", {
+                                required: {
+                                    value: true,
+                                    message: 'Minimum Required'
+                                }
+                            })}
+                        />
+                        <label class="label">
+                            {errors.name?.type === 'required' && <span class="label-text-alt text-red-500">{errors.name.message}</span>}
+                        </label>
+                    </div>
+
+
+                    <div class="form-control w-full max-w-xs">
+                        <label class="label">
+                            <span class="label-text">Price</span>
+                        </label>
+                        <input
+                            type="number"
+                            placeholder="Price"
+                            class="input input-bordered w-full max-w-xs"
+                            {...register("price", {
+                                required: {
+                                    value: true,
+                                    message: 'Price Required'
                                 }
                             })}
                         />
@@ -203,8 +201,9 @@ const MyProfile = () => {
                     <input className='btn w-full max-w-xs text-white' type="submit" value="Add" />
                 </form>
             </div>
+
         </div>
     );
 };
 
-export default MyProfile;
+export default AddTools;

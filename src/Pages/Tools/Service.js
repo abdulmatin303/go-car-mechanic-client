@@ -6,10 +6,11 @@ const Service = ({ service }) => {
     const { _id, name, price, img, description, minimum, available } = service;
     const navigate = useNavigate();
     const handleServiceDetail = id => {
+        console.log("ssee id: ",id);
         navigate(`/tools/${_id}`);
     }
 
-    const myDate = useContext(DateContext);
+    // const myDate = useContext(DateContext);
 
     return (
         <div class="card w-96 bg-base-100 shadow-xl hover:bg-slate-200 px-12">

@@ -21,6 +21,7 @@ import MyProfile from './Pages/Dashboard/MyProfile';
 import Blog from './Pages/Blogs/Blog';
 import ShowProfile from './Pages/Home/ShowProfile';
 import ShowAllProfile from './Pages/Dashboard/ShowAllProfile';
+import AddTools from './Pages/Dashboard/AddTools';
 
 
 function App() {
@@ -52,6 +53,7 @@ function App() {
           <Route path='users' element={<Users></Users>}></Route>
           <Route path='myProfile' element={<MyProfile></MyProfile>}></Route>
           <Route path='showAllProfile' element={<ShowAllProfile></ShowAllProfile>}></Route>
+          <Route path='addTools' element={<AddTools></AddTools>}></Route>
         </Route>
 
         <Route path="about" element={<About />} />
