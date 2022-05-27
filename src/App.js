@@ -19,6 +19,7 @@ import Contact from './Pages/Home/Contact';
 import Users from './Pages/Dashboard/Users';
 import MyProfile from './Pages/Dashboard/MyProfile';
 import Blog from './Pages/Blogs/Blog';
+import ShowProfile from './Pages/Home/ShowProfile';
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
         <Route path="/tools" element={<Tools />} />
+        <Route path="/showProfile" element={<ShowProfile></ShowProfile>} />
         <Route path="/contact" element={<Contact />} />
 
         <Route path='/tools/:toolsId' element={
