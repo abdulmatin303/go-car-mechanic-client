@@ -17,6 +17,8 @@ import MyOrder from './Pages/Dashboard/MyOrder';
 import MyReview from './Pages/Dashboard/MyReview';
 import Contact from './Pages/Home/Contact';
 import Users from './Pages/Dashboard/Users';
+import MyProfile from './Pages/Dashboard/MyProfile';
+import Blog from './Pages/Blogs/Blog';
 
 
 function App() {
@@ -45,9 +47,11 @@ function App() {
           <Route index element={<MyOrder></MyOrder>}></Route>
           <Route path='myReview' element={<MyReview></MyReview>}></Route>
           <Route path='users' element={<Users></Users>}></Route>
+          <Route path='myProfile' element={<MyProfile></MyProfile>}></Route>
         </Route>
 
         <Route path="about" element={<About />} />
+        <Route path="blog" element={<Blog></Blog>} />
         <Route path="login" element={<Login></Login>}></Route>
         <Route path="signup" element={<SignUp></SignUp>}></Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>

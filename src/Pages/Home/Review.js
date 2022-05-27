@@ -17,7 +17,7 @@ const Review = () => {
                     <h4 className='text-xl text-teal-600'>What our Clients says</h4>
                 </div>
 
-                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
+                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-6'>
 
                     {
                         services.map(review => <ReviewCard 

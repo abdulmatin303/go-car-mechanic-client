@@ -12,10 +12,11 @@ const Navbar = () => {
     localStorage.removeItem('accessToken')
   };
 
-  const menuItems = <>
+  const menuItems = < >
     <li className='font-medium'><Link to='home'>Home</Link></li>
     <li className='font-medium'><Link to='tools'>Tools</Link></li>
     <li className='font-medium'><Link to='contact'>Contact</Link></li>
+    <li className='font-medium'><Link to='blog'>Blog</Link></li>
     <li className='font-medium'><Link to='about'>About</Link></li>
 
     {
@@ -44,7 +45,7 @@ const Navbar = () => {
             {menuItems}
           </ul>
         </div>
-        <a className="btn btn-ghost normal-case text-xl font-bold">Go <span className='text-orange-700'>Car</span>  Mechanic</a>
+        <a className="btn btn-ghost normal-case text-2xl italic font-bold">Go <span className='text-orange-700'>Car</span>  Mechanic</a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal p-0">
