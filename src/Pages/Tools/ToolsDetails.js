@@ -2,6 +2,7 @@ import { format } from 'date-fns';
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 import { DateContext } from './Tools';
 const ToolsDetails = () => {
@@ -30,7 +31,7 @@ const ToolsDetails = () => {
         const email = event.target.email.value;
         const address = event.target.address.value;
 
-        console.log(minimum, date, name, email, address);
+        // console.log(minimum, date, name, email, address);
 
         const order = {
             orderId: orderDetails?._id,
@@ -52,7 +53,14 @@ const ToolsDetails = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                // console.log(data);
+                if(data.insertedId){
+                    toast.success('Order Added in Database');
+                    
+                }
+                else {
+                    toast.error('Order Failed');
+                }
             })
     }
 
@@ -79,18 +87,18 @@ const ToolsDetails = () => {
                         <h3 className='text-3xl'>Order for <span className='text-violet-700'>{orderDetails?.name}</span> </h3>
 
 
-                        <input type="text" name='name' defaultValue={user.displayName} disabled placeholder="Your Name" class="input input-bordered w-full max-w-xs" />
+                        <input  type="text" name='name' defaultValue={user.displayName} disabled placeholder="Your Name" class="input input-bordered w-full max-w-xs" />
 
                         <input type="text" name='email' defaultValue={user.email} disabled placeholder="Your Email" class="input input-bordered w-full max-w-xs" />
 
 
-                        <input type="number" name='minimum' ref={minimumRef} defaultValue={orderDetails?.minimum} placeholder="Your minimum order" class="input input-bordered w-full max-w-xs" />
+                        <input required type="number" name='minimum' ref={minimumRef} defaultValue={orderDetails?.minimum} placeholder="Your minimum order" class="input input-bordered w-full max-w-xs" />
 
-                        <input type="text" name='phone' placeholder="Your Phone Number" class="input input-bordered w-full max-w-xs" />
+                        <input required type="text" name='phone' placeholder="Your Phone Number" class="input input-bordered w-full max-w-xs" />
 
-                        <input type="text" name="address" placeholder="Your Address" class="input input-bordered w-full max-w-xs" />
+                        <input required type="text" name="address" placeholder="Your Address" class="input input-bordered w-full max-w-xs" />
 
-                        <input type="date" name="date" placeholder="Select when you need this order" class="input input-bordered w-full max-w-xs" />
+                        <input required type="date" name="date" placeholder="Select when you need this order" class="input input-bordered w-full max-w-xs" />
 
                         <input type="submit" value="submit" placeholder="Type here" class="btn btn-secondary w-full max-w-xs" />
                     </form>
