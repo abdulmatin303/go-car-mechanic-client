@@ -1,33 +1,31 @@
 import React, { useEffect, useState } from 'react';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import auth from '../../firebase.init';
 
-const ShowProfile = () => {
+
+const ShowAllProfile = () => {
 
     const [data, setData] = useState([])
-    const [user] = useAuthState(auth);
+    
     useEffect(() => {
-        fetch(`http://localhost:5000/myProfile?email=${user.email}`)
+        fetch(`http://localhost:5000/showAllProfile`)
             .then(res => res.json())
             .then(data => setData(data));
     }, [])
-    
 
     return (
         <section className='my-12 px-12'>
 
             <div>
                 <div className='text-center'>
-                    <h2 className="text-3xl font-bold text-emerald-400">My Profile</h2>
+                    <h2 className="text-3xl font-bold text-emerald-400">Show All Profile</h2>
 
-                    <h4 className='text-xl text-teal-600'>This is All About me</h4>
+                    
                 </div>
 
                 <div className='grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-5 mt-6'>
 
                     {
                         data.map(singleData => <>
-                            <div class="card lg:card-side bg-base-100 shadow-xl">
+                            <div class="card lg:card-side bg-base-100 shadow-xl mt-5">
                                 <figure><img src="https://api.lorem.space/image/album?w=400&h=400" alt="Album" /></figure>
                                 <div class="card-body hover:bg-gray-200">
                                     
@@ -58,4 +56,4 @@ const ShowProfile = () => {
     );
 };
 
-export default ShowProfile;
+export default ShowAllProfile;

@@ -20,6 +20,7 @@ import Users from './Pages/Dashboard/Users';
 import MyProfile from './Pages/Dashboard/MyProfile';
 import Blog from './Pages/Blogs/Blog';
 import ShowProfile from './Pages/Home/ShowProfile';
+import ShowAllProfile from './Pages/Dashboard/ShowAllProfile';
 
 
 function App() {
@@ -50,6 +51,7 @@ function App() {
           <Route path='myReview' element={<MyReview></MyReview>}></Route>
           <Route path='users' element={<Users></Users>}></Route>
           <Route path='myProfile' element={<MyProfile></MyProfile>}></Route>
+          <Route path='showAllProfile' element={<ShowAllProfile></ShowAllProfile>}></Route>
         </Route>
 
         <Route path="about" element={<About />} />
