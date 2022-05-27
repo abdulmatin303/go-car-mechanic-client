@@ -1,25 +1,67 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
+import { toast } from 'react-toastify';
+
 
 const MyProfile = () => {
 
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
 
-
+    const imageStorageKey = '50a06926a134a6cb570feab334799660';
 
     const onSubmit = async data => {
         console.log('data:', data);
-        
-        axios.post('http://localhost:5000/myProfile', data)
-            .then(res => {
-                if (res.data.insertedId) {
-                    alert('Successfully added your Profile');
-                    reset();
+
+        // for imageBB 
+        const image = data.image[0];
+        const formData = new FormData();
+        formData.append('image', image);
+        const url = `https://api.imgbb.com/1/upload?key=${imageStorageKey}`;
+        fetch(url, {
+            method: 'POST',
+            body: formData
+        })
+        .then(res=>res.json())
+        .then(result => {
+            // console.log("imgBB Result",result)
+            if(result.success){
+                const img = result.data.url;
+                const profileInfo = {
+                    name: data.name,
+                    email: data.email,
+                    education: data.education,
+                    location: data.location,
+                    phone: data.phone,
+                    img:img
                 }
-            })
+
+                fetch('http://localhost:5000/myProfile',{
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(profileInfo)
+                })
+                .then(res=> res.json())
+                .then(inserted => {
+                    if(inserted.insertedId){
+                        toast.success('My profile Created Successfully');
+                        console.log(profileInfo);
+                    }
+                    else {
+                        toast.error('Failed');
+                    }
+                })
+            }
+             
+        })
+
 
     }
+
+
+    
 
 
     return (
@@ -80,9 +122,9 @@ const MyProfile = () => {
                             <span class="label-text">Education</span>
                         </label>
 
-                        <select {...register('education')} class="select w-full max-w-xs">
+                        <select {...register('education')} class=" input-bordered select w-full max-w-xs">
 
-                            <option>Master</option>
+                            <option>Masters</option>
                             <option>Bachelor</option>
                             <option>HSC</option>
                             <option>SSC</option>
@@ -133,6 +175,29 @@ const MyProfile = () => {
                             {errors.name?.type === 'required' && <span class="label-text-alt text-red-500">{errors.name.message}</span>}
                         </label>
                     </div>
+
+
+
+                    <div class="form-control w-full max-w-xs">
+                        <label class="label">
+                            <span class="label-text">Photo</span>
+                        </label>
+                        <input
+                            type="file"
+                            class="input input-bordered w-full max-w-xs"
+                            {...register("image", {
+                                required: {
+                                    value: true,
+                                    message: 'Image is Required'
+                                }
+                            })}
+                        />
+                        <label class="label">
+                            {errors.name?.type === 'required' && <span class="label-text-alt text-red-500">{errors.name.message}</span>}
+                        </label>
+                    </div>
+
+
 
 
                     <input className='btn w-full max-w-xs text-white' type="submit" value="Add" />

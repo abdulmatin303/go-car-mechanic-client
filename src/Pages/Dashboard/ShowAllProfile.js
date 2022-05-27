@@ -26,7 +26,7 @@ const ShowAllProfile = () => {
                     {
                         data.map(singleData => <>
                             <div class="card lg:card-side bg-base-100 shadow-xl mt-5">
-                                <figure><img src="https://api.lorem.space/image/album?w=400&h=400" alt="Album" /></figure>
+                                <figure><img src={singleData.img} alt="Album" /></figure>
                                 <div class="card-body hover:bg-gray-200">
                                     
                                     <h2 class="card-title text-sky-700 text-3xl">{singleData.name}</h2>
