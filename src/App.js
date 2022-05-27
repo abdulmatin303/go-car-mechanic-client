@@ -23,6 +23,8 @@ import ShowProfile from './Pages/Home/ShowProfile';
 import ShowAllProfile from './Pages/Dashboard/ShowAllProfile';
 import AddTools from './Pages/Dashboard/AddTools';
 import ManageTools from './Pages/Tools/ManageTools';
+import CreatePortfolio from './Pages/Dashboard/CreatePortfolio';
+import Portfolio from './Pages/Dashboard/Portfolio';
 
 
 function App() {
@@ -35,6 +37,7 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/tools" element={<Tools />} />
         <Route path="/showProfile" element={<ShowProfile></ShowProfile>} />
+        <Route path="/showPortfolio" element={<Portfolio></Portfolio>} />
         <Route path="/contact" element={<Contact />} />
 
         <Route path='/tools/:toolsId' element={
@@ -56,6 +59,8 @@ function App() {
           <Route path='createProfile' element={<MyProfile></MyProfile>}></Route>
           <Route path='showAllProfile' element={<ShowAllProfile></ShowAllProfile>}></Route>
           <Route path='addTools' element={<AddTools></AddTools>}></Route>
+          <Route path='createPortfolio' element={<CreatePortfolio></CreatePortfolio>}></Route>
+          <Route path='portfolio' element={<Portfolio></Portfolio>}></Route>
           <Route path='manageTools' element={<ManageTools></ManageTools>}></Route>
         </Route>
 

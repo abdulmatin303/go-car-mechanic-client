@@ -38,9 +38,11 @@ const ShowAllProfile = () => {
 
                                     <p> <span className='text-amber-700 font-bold text-xl'> Contact:  </span>  <span className='text-rose-500 text-2xl'>{singleData.phone}</span></p>
 
-                                    <div class="card-actions justify-end">
+                                    <a className='bg-red-400 p-2 w-20 rounded hover:bg-green-500 hover:text-white' target='_blank' href={singleData.linkedIn}>LinkedIn</a>
+
+                                    {/* <div class="card-actions justify-end">
                                         <button class="btn btn-primary">Listen</button>
-                                    </div>
+                                    </div> */}
                                 </div>
                             </div>
                         </>)

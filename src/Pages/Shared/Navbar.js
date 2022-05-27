@@ -15,20 +15,21 @@ const Navbar = () => {
   const menuItems = < >
     <li className='font-medium'><Link to='home'>Home</Link></li>
     <li className='font-medium'><Link to='tools'>Tools</Link></li>
-    
-    <li className='font-medium'><Link to='contact'>Contact</Link></li>
     <li className='font-medium'><Link to='blog'>Blog</Link></li>
     <li className='font-medium'><Link to='about'>About</Link></li>
 
     {
-      user && <><li className='font-medium'><Link to='showProfile'>My Profile</Link></li> <li className='font-medium'><Link to='/dashboard'>Dashboard</Link></li> </> 
+      user && <>
+        <li className='font-medium'><Link to='showProfile'>My Profile</Link></li>
+        <li className='font-medium'><Link to='showPortfolio'>My Portfolio</Link></li>
+        <li className='font-medium'><Link to='/dashboard'>Dashboard</Link></li> </>
     }
 
     {user ? <div className='lg:flex'>
-      
+
       <li className="btn btn-ghost pt-4" onClick={logout}>Sign Out</li>
       <li className='mt-3 text-emerald-700'>{user.displayName}</li>
-      
+
 
     </div>
 
@@ -54,10 +55,10 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-      <label tabIndex="1" for="dashboard-sidebar" className="btn btn-ghost lg:hidden">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
-          </label>
-        
+        <label tabIndex="1" for="dashboard-sidebar" className="btn btn-ghost lg:hidden">
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+        </label>
+
       </div>
 
     </div>
