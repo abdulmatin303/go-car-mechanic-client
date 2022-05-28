@@ -3,6 +3,7 @@ import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
+import imageIcon from '../../icons/myProfileIcon.png'
 
 const Navbar = () => {
   const [user, loading, error] = useAuthState(auth);
@@ -22,16 +23,34 @@ const Navbar = () => {
 
     {
       user && <>
-        <li className='font-medium'><Link to='showProfile'>My Profile</Link></li>
-        <li className='font-medium'><Link to='showPortfolio'>My Portfolio</Link></li>
+        {/* <li className='font-medium'><Link to='showProfile'>My Profile</Link></li>
+        <li className='font-medium'><Link to='showPortfolio'>My Portfolio</Link></li> */}
         <li className='font-medium'><Link to='/dashboard'>Dashboard</Link></li> </>
     }
 
     {user ? <div className='lg:flex'>
+      
 
-      <li className="btn btn-ghost pt-4" onClick={logout}>Sign Out</li>
-      <li className='mt-3 text-emerald-700'>{user.displayName}</li>
+      <div class="dropdown pl-1 justify-end">
+        <label tabindex="0" class="btn btn-ghost btn-circle avatar">
+          <div class="w-10 rounded-full">
+            {user.photoURL ? <img src={user.photoURL} alt='' /> : <img src={imageIcon} alt='' />}
+          </div>
+        </label>
+        <ul tabindex="0" class="flex justify-center mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
 
+        <li className='mt-3 text-emerald-700 font-bold text-2xl'>{user.displayName}</li>
+
+          <div class="divider"></div>
+
+          <li><a className='justify-between'><Link to='showProfile'>Your Porfile </Link></a></li>
+          <li><a><Link to='showPortfolio'>Your Portfolio</Link></a></li>
+
+          <li onClick={logout}><a>Sign Out</a></li>
+        </ul>
+      </div>
+
+      {/* <li className="btn btn-ghost pt-4 sm:justify-start" onClick={logout}>Sign Out</li> */}
 
     </div>
 
@@ -40,7 +59,7 @@ const Navbar = () => {
   </>
   return (
     <div className="navbar bg-base-100">
-      <div className="navbar-start">
+      <div className="navbar">
         <div className="dropdown">
           <label tabIndex="0" className="btn btn-ghost lg:hidden">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>

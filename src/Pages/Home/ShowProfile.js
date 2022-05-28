@@ -1,3 +1,5 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { linkedin } from '@fortawesome/free-solid-svg-icons';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
@@ -43,7 +45,9 @@ const ShowProfile = () => {
                                     <p> <span className='text-amber-700 font-bold text-xl'> Contact:  </span>  <span className='text-rose-500 text-2xl'>{singleData.phone}</span></p>
                                     
 
-                                    <a className='bg-red-400 p-2 w-20 rounded hover:bg-green-500 hover:text-white' target='_blank' href={singleData.linkedIn}>LinkedIn</a>
+                                    {/* <a className='bg-red-400 p-2 w-20 rounded hover:bg-green-500 hover:text-white' target='_blank' href={singleData.linkedIn}></a> */}
+
+                                    <a className='pr-2' target='_blank' href={singleData.linkedIn}><button class="btn-active btn-info btn-link text-2xl">LinkedIn Profile</button></a>
 
                                     
                                 </div>

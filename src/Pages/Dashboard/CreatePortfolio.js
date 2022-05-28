@@ -20,51 +20,47 @@ const CreatePortfolio = () => {
             method: 'POST',
             body: formData
         })
-        .then(res=>res.json())
-        .then(result => {
-            // console.log("imgBB Result",result)
-            if(result.success){
-                const img = result.data.url;
-                const portfolioInfo = {
-                    name: data.name,
-                    email: data.email,
-                    education: data.education,
-                    skill: data.skill,
-                    project1: data.project1,
-                    project2: data.project2,
-                    project3: data.project3,
-                    img:img
+            .then(res => res.json())
+            .then(result => {
+                // console.log("imgBB Result",result)
+                if (result.success) {
+                    const img = result.data.url;
+                    const portfolioInfo = {
+                        name: data.name,
+                        email: data.email,
+                        education: data.education,
+                        skill: data.skill,
+                        project1: data.project1,
+                        project2: data.project2,
+                        project3: data.project3,
+                        img: img
+                    }
+
+                    fetch('http://localhost:5000/myPortfolio', {
+                        method: 'POST',
+                        headers: {
+                            'content-type': 'application/json'
+                        },
+                        body: JSON.stringify(portfolioInfo)
+                    })
+                        .then(res => res.json())
+                        .then(inserted => {
+                            if (inserted.insertedId) {
+                                toast.success('My portfolio Created Successfully');
+                                console.log(portfolioInfo);
+                                reset();
+                            }
+                            else {
+                                toast.error('Failed');
+                            }
+                        })
                 }
 
-                fetch('http://localhost:5000/myPortfolio',{
-                    method: 'POST',
-                    headers: {
-                        'content-type': 'application/json'
-                    },
-                    body: JSON.stringify(portfolioInfo)
-                })
-                .then(res=> res.json())
-                .then(inserted => {
-                    if(inserted.insertedId){
-                        toast.success('My portfolio Created Successfully');
-                        console.log(portfolioInfo);
-                        reset();
-                    }
-                    else {
-                        toast.error('Failed');
-                    }
-                })
-            }
-             
-        })
-
-
+            })
     }
 
     return (
-        <div>
-
-
+        <div className='flex justify-center'>
             <div className=''>
                 <form onSubmit={handleSubmit(onSubmit)}>
 
@@ -134,12 +130,8 @@ const CreatePortfolio = () => {
                             <option>SSC</option>
                             <option>JSC</option>
                             <option>Others</option>
-
                         </select>
-
-
                     </div>
-
 
                     <div class="form-control w-full max-w-xs">
                         <label class="label">
@@ -160,10 +152,6 @@ const CreatePortfolio = () => {
                             {errors.name?.type === 'required' && <span class="label-text-alt text-red-500">{errors.name.message}</span>}
                         </label>
                     </div>
-
-                    
-
-
 
                     <div class="form-control w-full max-w-xs">
                         <label class="label">
@@ -205,7 +193,6 @@ const CreatePortfolio = () => {
                         </label>
                     </div>
 
-
                     <div class="form-control w-full max-w-xs">
                         <label class="label">
                             <span class="label-text">Project 2</span>
@@ -225,7 +212,6 @@ const CreatePortfolio = () => {
                             {errors.name?.type === 'required' && <span class="label-text-alt text-red-500">{errors.name.message}</span>}
                         </label>
                     </div>
-
 
                     <div class="form-control w-full max-w-xs">
                         <label class="label">
@@ -247,10 +233,7 @@ const CreatePortfolio = () => {
                         </label>
                     </div>
 
-
-
-
-                    <input className='btn w-full max-w-xs text-white' type="submit" value="Add" />
+                    <input className='btn w-full max-w-xs text-white mb-6' type="submit" value="Add" />
                 </form>
             </div>
         </div>
