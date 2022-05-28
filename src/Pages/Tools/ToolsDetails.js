@@ -39,7 +39,9 @@ const ToolsDetails = () => {
             orderEmail: email,
             orderAddress: address,
             orderDate: date,
-            orderProduct: orderDetails?.name
+            orderProduct: orderDetails?.name,
+            orderPrice: orderDetails?.price,
+            orderMinimum: minimum,
         }
 
         console.log(order.orderName);

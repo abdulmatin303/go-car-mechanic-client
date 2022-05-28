@@ -69,7 +69,7 @@ const MyProfile = () => {
         <div>
 
 
-            <div className=''>
+            <div className='flex justify-center'>
                 <form onSubmit={handleSubmit(onSubmit)}>
 
                     <div class="form-control w-full max-w-xs">

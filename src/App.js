@@ -25,6 +25,7 @@ import AddTools from './Pages/Dashboard/AddTools';
 import ManageTools from './Pages/Tools/ManageTools';
 import CreatePortfolio from './Pages/Dashboard/CreatePortfolio';
 import Portfolio from './Pages/Dashboard/Portfolio';
+import Payment from './Pages/Dashboard/Payment';
 
 
 function App() {
@@ -58,6 +59,7 @@ function App() {
           <Route path='myProfile' element={<ShowProfile></ShowProfile>}></Route>
           <Route path='createProfile' element={<MyProfile></MyProfile>}></Route>
           <Route path='showAllProfile' element={<ShowAllProfile></ShowAllProfile>}></Route>
+          <Route path='payment/:id' element={<Payment></Payment>}></Route>
           <Route path='addTools' element={<AddTools></AddTools>}></Route>
           <Route path='createPortfolio' element={<CreatePortfolio></CreatePortfolio>}></Route>
           <Route path='portfolio' element={<Portfolio></Portfolio>}></Route>
