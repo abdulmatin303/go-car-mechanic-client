@@ -29,7 +29,7 @@ const Navbar = () => {
     }
 
     {user ? <div className='lg:flex'>
-      
+
 
       <div class="dropdown pl-1 justify-end">
         <label tabindex="0" class="btn btn-ghost btn-circle avatar">
@@ -37,9 +37,10 @@ const Navbar = () => {
             {user.photoURL ? <img src={user.photoURL} alt='' /> : <img src={imageIcon} alt='' />}
           </div>
         </label>
-        <ul tabindex="0" class="flex justify-center mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
+        <ul tabindex="0" class="flex justify-start mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
 
-        <li className='mt-3 text-emerald-700 font-bold text-2xl'>{user.displayName}</li>
+          <li className='mt-3 pl-2 text-emerald-700  text-xl'>{user.displayName}</li>
+          <li className='mt-3 pl-2'>{user.email}</li>
 
           <div class="divider"></div>
 
@@ -70,7 +71,7 @@ const Navbar = () => {
         </div>
         <a className="btn btn-ghost normal-case text-2xl italic font-bold">Go <span className='text-orange-700'>Car</span>  Mechanic</a>
       </div>
-      <div className="navbar-center hidden lg:flex">
+      <div className="navbar-start hidden lg:flex">
         <ul className="menu menu-horizontal p-0">
           {menuItems}
         </ul>
@@ -79,7 +80,6 @@ const Navbar = () => {
         <label tabIndex="1" for="dashboard-sidebar" className="btn btn-ghost lg:hidden">
           <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
         </label>
-
       </div>
 
     </div>

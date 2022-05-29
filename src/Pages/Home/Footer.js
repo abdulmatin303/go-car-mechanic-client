@@ -29,10 +29,10 @@ const Footer = () => {
             </div>
             <div>
                 <div>
-                   <a href="https://play.google.com/store/apps"><img className='w-20' src={google} alt="" /></a>
+                   <a  target="_blank" href="https://play.google.com/store/apps"><img className='w-20' src={google} alt="" /></a>
                 </div>
                 <div>
-                    <a href="https://www.apple.com/app-store/"><img className='w-20' src={apple} alt="" /></a>
+                    <a target="_blank" href="https://www.apple.com/app-store/"><img className='w-20' src={apple} alt="" /></a>
                 </div>
             </div>
         </footer>

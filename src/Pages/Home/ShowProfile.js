@@ -22,7 +22,7 @@ const ShowProfile = () => {
 
             <div>
                 <div className='text-center'>
-                    <h2 className="text-3xl font-bold text-emerald-400">My Profile</h2>
+                    <h2 className="text-2xl font-bold text-emerald-400">My Profile</h2>
 
                     <h4 className='text-xl text-teal-600'>This is All About me</h4>
                 </div>

@@ -26,6 +26,9 @@ const ToolsDetails = () => {
         event.preventDefault();
 
         const minimum = minimumRef.current.value;
+        // if(minimum<495){
+        //     alert("not possible");
+        // }
         const date = event.target.date.value;
         const name = event.target.name.value;
         const email = event.target.email.value;
@@ -94,7 +97,7 @@ const ToolsDetails = () => {
                         <input type="text" name='email' defaultValue={user.email} disabled placeholder="Your Email" class="input input-bordered w-full max-w-xs" />
 
 
-                        <input required type="number" name='minimum' ref={minimumRef} defaultValue={orderDetails?.minimum} placeholder="Your minimum order" class="input input-bordered w-full max-w-xs" />
+                        <input required type="number" name='minimum' ref={minimumRef<495 ? 'not possible' : minimumRef} defaultValue={orderDetails?.minimum} placeholder="Your minimum order" class="input input-bordered w-full max-w-xs" />
 
                         <input required type="text" name='phone' placeholder="Your Phone Number" class="input input-bordered w-full max-w-xs" />
 
@@ -102,7 +105,7 @@ const ToolsDetails = () => {
 
                         <input required type="date" name="date" placeholder="Select when you need this order" class="input input-bordered w-full max-w-xs" />
 
-                        <input type="submit" value="submit" placeholder="Type here" class="btn btn-secondary w-full max-w-xs" />
+                        <input type="submit" value="Place Order" placeholder="Type here" class="btn btn-secondary w-full max-w-xs" />
                     </form>
                 </div>
             </div>

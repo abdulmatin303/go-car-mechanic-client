@@ -60,181 +60,189 @@ const CreatePortfolio = () => {
     }
 
     return (
-        <div className='flex justify-center'>
-            <div className=''>
-                <form onSubmit={handleSubmit(onSubmit)}>
+        <div>
+            <div className='text-center'>
+                <h2 className="text-2xl font-bold text-emerald-400">Create Your Portfolio</h2>
 
-                    <div class="form-control w-full max-w-xs">
-                        <label class="label">
-                            <span class="label-text">Name</span>
-                        </label>
-                        <input
-                            type="text"
-                            placeholder="Your Name"
-                            class="input input-bordered w-full max-w-xs"
-                            {...register("name", {
-                                required: {
-                                    value: true,
-                                    message: 'Name is Required'
-                                }
-                            })}
-                        />
-                        <label class="label">
-                            {errors.name?.type === 'required' && <span class="label-text-alt text-red-500">{errors.name.message}</span>}
-                        </label>
-                    </div>
+            </div>
 
-                    <div class="form-control w-full max-w-xs">
-                        <label class="label">
-                            <span class="label-text">Email</span>
-                        </label>
-                        <input
-                            type="email"
-                            placeholder="Your Email"
-                            class="input input-bordered w-full max-w-xs"
-                            {...register("email", {
-                                required: {
-                                    value: true,
-                                    message: 'Email is Required'
-                                },
-                                pattern: {
-                                    value: /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/,
-                                    message: 'Provide a valid Email'
-                                }
-                            })}
-                        />
-                        <label class="label">
-                            {errors.email?.type === 'required' && <span class="label-text-alt text-red-500">{errors.email.message}</span>}
+            <div className='flex justify-center'>
 
-                            {errors.email?.type === 'pattern' && <span class="label-text-alt text-red-500">{errors.email.message}</span>}
-                        </label>
-                    </div>
+                <div className=''>
+                    <form onSubmit={handleSubmit(onSubmit)}>
 
-                    <div class="form-control w-full max-w-xs">
-                        <label class="label">
-                            <span class="label-text">Education</span>
-                        </label>
+                        <div class="form-control w-full max-w-xs">
+                            <label class="label">
+                                <span class="label-text">Name</span>
+                            </label>
+                            <input
+                                type="text"
+                                placeholder="Your Name"
+                                class="input input-bordered w-full max-w-xs"
+                                {...register("name", {
+                                    required: {
+                                        value: true,
+                                        message: 'Name is Required'
+                                    }
+                                })}
+                            />
+                            <label class="label">
+                                {errors.name?.type === 'required' && <span class="label-text-alt text-red-500">{errors.name.message}</span>}
+                            </label>
+                        </div>
 
-                        <select {...register('education')} class=" input-bordered select w-full max-w-xs">
+                        <div class="form-control w-full max-w-xs">
+                            <label class="label">
+                                <span class="label-text">Email</span>
+                            </label>
+                            <input
+                                type="email"
+                                placeholder="Your Email"
+                                class="input input-bordered w-full max-w-xs"
+                                {...register("email", {
+                                    required: {
+                                        value: true,
+                                        message: 'Email is Required'
+                                    },
+                                    pattern: {
+                                        value: /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/,
+                                        message: 'Provide a valid Email'
+                                    }
+                                })}
+                            />
+                            <label class="label">
+                                {errors.email?.type === 'required' && <span class="label-text-alt text-red-500">{errors.email.message}</span>}
 
-                            <option>Bsc in CSE</option>
-                            <option>Bsc in IT</option>
-                            <option>Bsc in ICT</option>
-                            <option>Bsc in ETE</option>
-                            <option>Bsc in EEE</option>
-                            <option>Msc in CSE</option>
-                            <option>Bsc in EEE</option>
-                            <option>Bachelor</option>
-                            <option>Masters</option>
-                            <option>HSC</option>
-                            <option>SSC</option>
-                            <option>JSC</option>
-                            <option>Others</option>
-                        </select>
-                    </div>
+                                {errors.email?.type === 'pattern' && <span class="label-text-alt text-red-500">{errors.email.message}</span>}
+                            </label>
+                        </div>
 
-                    <div class="form-control w-full max-w-xs">
-                        <label class="label">
-                            <span class="label-text">Skill</span>
-                        </label>
-                        <input
-                            type="text"
-                            placeholder="React,  Node,...."
-                            class="input input-bordered w-full max-w-xs"
-                            {...register("skill", {
-                                required: {
-                                    value: true,
-                                    message: 'Skill is Required'
-                                }
-                            })}
-                        />
-                        <label class="label">
-                            {errors.name?.type === 'required' && <span class="label-text-alt text-red-500">{errors.name.message}</span>}
-                        </label>
-                    </div>
+                        <div class="form-control w-full max-w-xs">
+                            <label class="label">
+                                <span class="label-text">Education</span>
+                            </label>
 
-                    <div class="form-control w-full max-w-xs">
-                        <label class="label">
-                            <span class="label-text">Photo</span>
-                        </label>
-                        <input
-                            type="file"
-                            class="input input-bordered w-full max-w-xs"
-                            {...register("image", {
-                                required: {
-                                    value: true,
-                                    message: 'Image is Required'
-                                }
-                            })}
-                        />
-                        <label class="label">
-                            {errors.name?.type === 'required' && <span class="label-text-alt text-red-500">{errors.name.message}</span>}
-                        </label>
-                    </div>
+                            <select {...register('education')} class=" input-bordered select w-full max-w-xs">
+
+                                <option>Bsc in CSE</option>
+                                <option>Bsc in IT</option>
+                                <option>Bsc in ICT</option>
+                                <option>Bsc in ETE</option>
+                                <option>Bsc in EEE</option>
+                                <option>Msc in CSE</option>
+                                <option>Bsc in EEE</option>
+                                <option>Bachelor</option>
+                                <option>Masters</option>
+                                <option>HSC</option>
+                                <option>SSC</option>
+                                <option>JSC</option>
+                                <option>Others</option>
+                            </select>
+                        </div>
+
+                        <div class="form-control w-full max-w-xs">
+                            <label class="label">
+                                <span class="label-text">Skill</span>
+                            </label>
+                            <input
+                                type="text"
+                                placeholder="React,  Node,...."
+                                class="input input-bordered w-full max-w-xs"
+                                {...register("skill", {
+                                    required: {
+                                        value: true,
+                                        message: 'Skill is Required'
+                                    }
+                                })}
+                            />
+                            <label class="label">
+                                {errors.name?.type === 'required' && <span class="label-text-alt text-red-500">{errors.name.message}</span>}
+                            </label>
+                        </div>
+
+                        <div class="form-control w-full max-w-xs">
+                            <label class="label">
+                                <span class="label-text">Photo</span>
+                            </label>
+                            <input
+                                type="file"
+                                class="input input-bordered w-full max-w-xs"
+                                {...register("image", {
+                                    required: {
+                                        value: true,
+                                        message: 'Image is Required'
+                                    }
+                                })}
+                            />
+                            <label class="label">
+                                {errors.name?.type === 'required' && <span class="label-text-alt text-red-500">{errors.name.message}</span>}
+                            </label>
+                        </div>
 
 
-                    <div class="form-control w-full max-w-xs">
-                        <label class="label">
-                            <span class="label-text">Project 1</span>
-                        </label>
-                        <input
-                            type="text"
-                            placeholder="Your Project Link"
-                            class="input input-bordered w-full max-w-xs"
-                            {...register("project1", {
-                                required: {
-                                    value: true,
-                                    message: 'Project1 Link Required'
-                                }
-                            })}
-                        />
-                        <label class="label">
-                            {errors.name?.type === 'required' && <span class="label-text-alt text-red-500">{errors.name.message}</span>}
-                        </label>
-                    </div>
+                        <div class="form-control w-full max-w-xs">
+                            <label class="label">
+                                <span class="label-text">Project 1</span>
+                            </label>
+                            <input
+                                type="text"
+                                placeholder="Your Project Link"
+                                class="input input-bordered w-full max-w-xs"
+                                {...register("project1", {
+                                    required: {
+                                        value: true,
+                                        message: 'Project1 Link Required'
+                                    }
+                                })}
+                            />
+                            <label class="label">
+                                {errors.name?.type === 'required' && <span class="label-text-alt text-red-500">{errors.name.message}</span>}
+                            </label>
+                        </div>
 
-                    <div class="form-control w-full max-w-xs">
-                        <label class="label">
-                            <span class="label-text">Project 2</span>
-                        </label>
-                        <input
-                            type="text"
-                            placeholder="Your Project Link"
-                            class="input input-bordered w-full max-w-xs"
-                            {...register("project2", {
-                                required: {
-                                    value: true,
-                                    message: 'Project2 Link Required'
-                                }
-                            })}
-                        />
-                        <label class="label">
-                            {errors.name?.type === 'required' && <span class="label-text-alt text-red-500">{errors.name.message}</span>}
-                        </label>
-                    </div>
+                        <div class="form-control w-full max-w-xs">
+                            <label class="label">
+                                <span class="label-text">Project 2</span>
+                            </label>
+                            <input
+                                type="text"
+                                placeholder="Your Project Link"
+                                class="input input-bordered w-full max-w-xs"
+                                {...register("project2", {
+                                    required: {
+                                        value: true,
+                                        message: 'Project2 Link Required'
+                                    }
+                                })}
+                            />
+                            <label class="label">
+                                {errors.name?.type === 'required' && <span class="label-text-alt text-red-500">{errors.name.message}</span>}
+                            </label>
+                        </div>
 
-                    <div class="form-control w-full max-w-xs">
-                        <label class="label">
-                            <span class="label-text">Project 3</span>
-                        </label>
-                        <input
-                            type="text"
-                            placeholder="Your Project Link"
-                            class="input input-bordered w-full max-w-xs"
-                            {...register("project3", {
-                                required: {
-                                    value: true,
-                                    message: 'Project3 Link Required'
-                                }
-                            })}
-                        />
-                        <label class="label">
-                            {errors.name?.type === 'required' && <span class="label-text-alt text-red-500">{errors.name.message}</span>}
-                        </label>
-                    </div>
+                        <div class="form-control w-full max-w-xs">
+                            <label class="label">
+                                <span class="label-text">Project 3</span>
+                            </label>
+                            <input
+                                type="text"
+                                placeholder="Your Project Link"
+                                class="input input-bordered w-full max-w-xs"
+                                {...register("project3", {
+                                    required: {
+                                        value: true,
+                                        message: 'Project3 Link Required'
+                                    }
+                                })}
+                            />
+                            <label class="label">
+                                {errors.name?.type === 'required' && <span class="label-text-alt text-red-500">{errors.name.message}</span>}
+                            </label>
+                        </div>
 
-                    <input className='btn w-full max-w-xs text-white mb-6' type="submit" value="Add" />
-                </form>
+                        <input className='btn w-full max-w-xs text-white mb-6' type="submit" value="Add" />
+                    </form>
+                </div>
             </div>
         </div>
     );

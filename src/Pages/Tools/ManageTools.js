@@ -1,4 +1,5 @@
 import React from 'react';
+import Swal from 'sweetalert2';
 import useToolsList from '../../hooks/useToolsList';
 const ManageTools = () => {
 
@@ -6,20 +7,38 @@ const ManageTools = () => {
 
     const handleDelete = id => {
         // console.log('id value: ', id);
-        const proceed = window.confirm('Are you sure to delete?');
-        if(proceed){
-            const url = `http://localhost:5000/service/${id}`
-            fetch(url, {
-                method: 'DELETE'
-            })
-            .then(res => res.json())
-            .then( data => {
-                // console.log('data is: ', data);
-                const remaining = services.filter(service => service._id !== id);
-                setServices(remaining);
-                
-            })
-        }
+
+        Swal.fire({
+            title: 'Are you sure to delete tools?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+                const url = `http://localhost:5000/service/${id}`
+                fetch(url, {
+                    method: 'DELETE'
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        // console.log('data is: ', data);
+                        const remaining = services.filter(service => service._id !== id);
+                        setServices(remaining);
+
+                    })
+
+                Swal.fire(
+                    'Deleted!',
+                    'Your Tools has been deleted.',
+                    'success'
+                )
+            }
+        })
+
     }
 
     return (
@@ -51,11 +70,13 @@ const ManageTools = () => {
 
                                     <p>{service.description.slice(0, 25)}..</p>
 
-                
+
 
                                     <div class="card-actions justify-center">
 
-                                        <button onClick={()=> handleDelete(service._id) }  class="btn btn-primary text-white"  >Delete Tools</button>
+                                        <button onClick={() => handleDelete(service._id)} class="btn btn-primary text-white"  >
+                                            Delete Tools
+                                        </button>
 
                                     </div>
                                 </div>

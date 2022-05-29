@@ -21,55 +21,58 @@ const MyProfile = () => {
             method: 'POST',
             body: formData
         })
-        .then(res=>res.json())
-        .then(result => {
-            // console.log("imgBB Result",result)
-            if(result.success){
-                const img = result.data.url;
-                const profileInfo = {
-                    name: data.name,
-                    email: data.email,
-                    education: data.education,
-                    location: data.location,
-                    phone: data.phone,
-                    linkedIn: data.linkedIn,
-                    img:img
+            .then(res => res.json())
+            .then(result => {
+                // console.log("imgBB Result",result)
+                if (result.success) {
+                    const img = result.data.url;
+                    const profileInfo = {
+                        name: data.name,
+                        email: data.email,
+                        education: data.education,
+                        location: data.location,
+                        phone: data.phone,
+                        linkedIn: data.linkedIn,
+                        img: img
+                    }
+
+                    fetch('http://localhost:5000/myProfile', {
+                        method: 'POST',
+                        headers: {
+                            'content-type': 'application/json'
+                        },
+                        body: JSON.stringify(profileInfo)
+                    })
+                        .then(res => res.json())
+                        .then(inserted => {
+                            if (inserted.insertedId) {
+                                toast.success('My profile Created Successfully');
+                                // console.log(profileInfo);
+                                reset();
+                            }
+                            else {
+                                toast.error('Failed');
+                            }
+                        })
                 }
 
-                fetch('http://localhost:5000/myProfile',{
-                    method: 'POST',
-                    headers: {
-                        'content-type': 'application/json'
-                    },
-                    body: JSON.stringify(profileInfo)
-                })
-                .then(res=> res.json())
-                .then(inserted => {
-                    if(inserted.insertedId){
-                        toast.success('My profile Created Successfully');
-                        // console.log(profileInfo);
-                        reset();
-                    }
-                    else {
-                        toast.error('Failed');
-                    }
-                })
-            }
-             
-        })
+            })
 
 
     }
 
-
-    
-
-
     return (
         <div>
+            <div className='text-center'>
+                <h2 className="text-2xl font-bold text-emerald-400">Create Your Profile</h2>
 
+                
+            </div>
 
             <div className='flex justify-center'>
+
+
+
                 <form onSubmit={handleSubmit(onSubmit)}>
 
                     <div class="form-control w-full max-w-xs">

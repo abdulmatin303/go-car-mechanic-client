@@ -26,6 +26,7 @@ import ManageTools from './Pages/Tools/ManageTools';
 import CreatePortfolio from './Pages/Dashboard/CreatePortfolio';
 import Portfolio from './Pages/Dashboard/Portfolio';
 import Payment from './Pages/Dashboard/Payment';
+import ManageAllOrder from './Pages/Dashboard/ManageAllOrder';
 
 
 function App() {
@@ -64,6 +65,7 @@ function App() {
           <Route path='createPortfolio' element={<CreatePortfolio></CreatePortfolio>}></Route>
           <Route path='portfolio' element={<Portfolio></Portfolio>}></Route>
           <Route path='manageTools' element={<ManageTools></ManageTools>}></Route>
+          <Route path='manageAllOrder' element={<ManageAllOrder></ManageAllOrder>}></Route>
         </Route>
 
         <Route path="about" element={<About />} />
