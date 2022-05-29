@@ -1,5 +1,6 @@
 
 import React, { useEffect, useState } from 'react';
+import Swal from 'sweetalert2';
 
 
 
@@ -22,52 +23,81 @@ const ManageAllOrder = () => {
 
 
 
-    const handleDelete= id => {
+    const handleDelete = id => {
 
-        const proceed = window.confirm('Are You want to cancel order? Confirm ?')
-        if (proceed) {
-            const url = `http://localhost:5000/allOrder/${id}`;
-            fetch(url, {
-                method: 'DELETE'
-            })
-                .then(res => res.json())
-                .then(data => {
-                    if (data.deletedCount > 0) {
-                        alert('Cancel the order successfully')
-                        const remainingUsers = orders.filter(user => user._id !== id);
-                        setOrders(remainingUsers)
-                        console.log(remainingUsers);
 
-                    }
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                const url = `http://localhost:5000/allOrder/${id}`;
+                fetch(url, {
+                    method: 'DELETE'
                 })
-        }
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.deletedCount > 0) {
+
+                            // sweet alert 
+                            Swal.fire({
+                                title: 'Cancel the order successfully',
+                                showClass: {
+                                  popup: 'animate__animated animate__fadeInDown'
+                                },
+                                hideClass: {
+                                  popup: 'animate__animated animate__fadeOutUp'
+                                }
+                              })
+
+                            // alert('Cancel the order successfully');
+                            const remainingUsers = orders.filter(user => user._id !== id);
+                            setOrders(remainingUsers)
+                            console.log(remainingUsers);
+
+                        }
+                    })
+                Swal.fire(
+                    'Deleted!',
+                    'Your file has been deleted.',
+                    'success'
+                )
+            }
+        })
+
+
 
     }
 
 
-     // update the status pending to approved
-  const handleApproved = (order) => {
-    const newOrder = { ...order };
-    console.log(order)
+    // update the status pending to approved
+    const handleApproved = (order) => {
+        const newOrder = { ...order };
+        console.log(order)
 
-    newOrder.status = "Shipped";
-    delete newOrder._id;
-    const url = `http://localhost:5000/allOrder/${order._id}`;
-    fetch(url, {
-        method: "PUT",
-        headers: {
-            "content-type": "application/json",
-        },
-        body: JSON.stringify(newOrder),
-    })
-        .then((res) => res.json())
-        .then((result) => {
-            if (result.acknowledged) {
-                alert("Update Order Successfully");
-                setApproved(!approved);
-            }
-        });
-};
+        newOrder.status = "Shipped";
+        delete newOrder._id;
+        const url = `http://localhost:5000/allOrder/${order._id}`;
+        fetch(url, {
+            method: "PUT",
+            headers: {
+                "content-type": "application/json",
+            },
+            body: JSON.stringify(newOrder),
+        })
+            .then((res) => res.json())
+            .then((result) => {
+                if (result.acknowledged) {
+                    alert("Update Order Successfully");
+                    setApproved(!approved);
+                }
+            });
+    };
 
 
 
@@ -105,7 +135,7 @@ const ManageAllOrder = () => {
                                 {/* <td>{singleOrder.orderAddress}</td> */}
                                 <td>{singleOrder.orderProduct}</td>
                                 <td>
-                                    {((singleOrder.orderPrice * singleOrder.orderMinimum) && !singleOrder.paid) && <p><span className='text-red-500 text-xl'>Not Paid</span> </p> }
+                                    {((singleOrder.orderPrice * singleOrder.orderMinimum) && !singleOrder.paid) && <p><span className='text-red-500 text-xl'>Not Paid</span> </p>}
 
 
                                     {((singleOrder.orderPrice * singleOrder.orderMinimum) && singleOrder.paid) && <div>
@@ -117,18 +147,18 @@ const ManageAllOrder = () => {
                                 <td><span className='bg-blue-500  rounded'>{singleOrder.status}</span></td>
 
                                 <td> {
-                                    singleOrder.transactionId &&  <button class="btn btn-secondary btn-xs" onClick={()=> handleApproved(singleOrder)}>ADD</button>}
+                                    singleOrder.transactionId && <button class="btn btn-secondary btn-xs" onClick={() => handleApproved(singleOrder)}>ADD</button>}
                                 </td>
 
 
                                 {
-                                    !singleOrder.transactionId && <td><button class="btn btn-xs" onClick={()=> handleDelete(singleOrder._id)}>Remove Order</button></td>
+                                    !singleOrder.transactionId && <td><button class="btn btn-xs" onClick={() => handleDelete(singleOrder._id)}>Remove Order</button></td>
                                 }
 
                             </tr>)
                         }
 
-{/* -------------------  not paid show on payment  ---------------- -------------------- ------------- ------ */}
+                        {/* -------------------  not paid show on payment  ---------------- -------------------- ------------- ------ */}
 
 
                     </tbody>
