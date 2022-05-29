@@ -12,7 +12,7 @@ const ManageAllOrder = () => {
     // console.log(user.email);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/allOrder`)
+        fetch(`https://frozen-anchorage-94808.herokuapp.com/allOrder`)
             .then(res => res.json())
             .then(data => {
                 setOrders(data);
@@ -36,7 +36,7 @@ const ManageAllOrder = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                const url = `http://localhost:5000/allOrder/${id}`;
+                const url = `https://frozen-anchorage-94808.herokuapp.com/allOrder/${id}`;
                 fetch(url, {
                     method: 'DELETE'
                 })
@@ -82,7 +82,7 @@ const ManageAllOrder = () => {
 
         newOrder.status = "Shipped";
         delete newOrder._id;
-        const url = `http://localhost:5000/allOrder/${order._id}`;
+        const url = `https://frozen-anchorage-94808.herokuapp.com/allOrder/${order._id}`;
         fetch(url, {
             method: "PUT",
             headers: {

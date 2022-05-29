@@ -11,7 +11,7 @@ const MyReview = () => {
     const onSubmit = data => {
         console.log(data);
 
-        axios.post('http://localhost:5000/review', data)
+        axios.post('https://frozen-anchorage-94808.herokuapp.com/review', data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert('We find your feedback successfully');

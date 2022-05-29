@@ -27,6 +27,7 @@ import CreatePortfolio from './Pages/Dashboard/CreatePortfolio';
 import Portfolio from './Pages/Dashboard/Portfolio';
 import Payment from './Pages/Dashboard/Payment';
 import ManageAllOrder from './Pages/Dashboard/ManageAllOrder';
+import CarBenifits from './Pages/Home/CarBenifits';
 
 
 function App() {
@@ -40,8 +41,8 @@ function App() {
         <Route path="/tools" element={<Tools />} />
         <Route path="/showProfile" element={<ShowProfile></ShowProfile>} />
         <Route path="/showPortfolio" element={<Portfolio></Portfolio>} />
+        <Route path="/carBenifits" element={<CarBenifits></CarBenifits>} />
         <Route path="/contact" element={<Contact />} />
-
         <Route path='/tools/:toolsId' element={
           <RequireAuth>
             <ToolsDetails></ToolsDetails>

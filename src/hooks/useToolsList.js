@@ -5,7 +5,7 @@ const useToolsList = () => {
     const [services, setServices]= useState([]);
 
     useEffect(()=>{
-        fetch('http://localhost:5000/service')
+        fetch('https://frozen-anchorage-94808.herokuapp.com/service')
         .then(res=> res.json())
         .then(data=> setServices(data))
     },[])

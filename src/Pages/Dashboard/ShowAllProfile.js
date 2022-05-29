@@ -6,7 +6,7 @@ const ShowAllProfile = () => {
     const [data, setData] = useState([])
     
     useEffect(() => {
-        fetch(`http://localhost:5000/showAllProfile`)
+        fetch(`https://frozen-anchorage-94808.herokuapp.com/showAllProfile`)
             .then(res => res.json())
             .then(data => setData(data));
     }, [])

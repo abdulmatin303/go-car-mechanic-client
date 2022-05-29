@@ -7,7 +7,7 @@ const Portfolio = () => {
     const [data, setData] = useState([])
     const [user] = useAuthState(auth);
     useEffect(() => {
-        fetch(`http://localhost:5000/myPortfolio?email=${user.email}`)
+        fetch(`https://frozen-anchorage-94808.herokuapp.com/myPortfolio?email=${user.email}`)
             .then(res => res.json())
             .then(data => setData(data));
     }, [])

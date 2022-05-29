@@ -36,7 +36,7 @@ const CreatePortfolio = () => {
                         img: img
                     }
 
-                    fetch('http://localhost:5000/myPortfolio', {
+                    fetch('https://frozen-anchorage-94808.herokuapp.com/myPortfolio', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json'

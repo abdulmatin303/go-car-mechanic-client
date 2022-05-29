@@ -19,7 +19,7 @@ const ManageTools = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                const url = `http://localhost:5000/service/${id}`
+                const url = `https://frozen-anchorage-94808.herokuapp.com/service/${id}`
                 fetch(url, {
                     method: 'DELETE'
                 })

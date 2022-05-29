@@ -4,7 +4,7 @@ import ReviewCard from './ReviewCard';
 const Review = () => {
     const [services, setServices] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/review')
+        fetch('https://frozen-anchorage-94808.herokuapp.com/review')
             .then(res => res.json())
             .then(data => setServices(data));
     }, [])

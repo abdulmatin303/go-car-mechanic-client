@@ -36,7 +36,7 @@ const MyProfile = () => {
                         img: img
                     }
 
-                    fetch('http://localhost:5000/myProfile', {
+                    fetch('https://frozen-anchorage-94808.herokuapp.com/myProfile', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json'

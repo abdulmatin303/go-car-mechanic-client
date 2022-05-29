@@ -10,15 +10,15 @@ const ReviewCard = ({ review }) => {
       <div className="card-body">
 
         <div className="card-actions flex items-center justify-evenly">
-          <div className='justify-center'>
           <FontAwesomeIcon icon={faUser} size="3x"></FontAwesomeIcon>
-          </div>
+          
           {/* avatar  */}
           {/* <div className="avatar">
 
             <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
               <img src="https://api.lorem.space/image/face?hash=3174" alt='' />
             </div>
+        
 
           </div> */}
 
@@ -29,7 +29,7 @@ const ReviewCard = ({ review }) => {
 
         </div>
 
-        <div className='mt-2'>
+        <div className='mt-2 pl-36'>
           <p>{review.description}</p>
           <Rating
             initialRating={review.rating}

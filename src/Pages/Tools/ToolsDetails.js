@@ -10,7 +10,7 @@ const ToolsDetails = () => {
     // console.log('tools: ',toolsId);
     const [toolDetail, setToolDetail] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/service')
+        fetch('https://frozen-anchorage-94808.herokuapp.com/service')
             .then(res => res.json())
             .then(data => setToolDetail(data))
     }, [])
@@ -49,7 +49,7 @@ const ToolsDetails = () => {
 
         console.log(order.orderName);
 
-        fetch('http://localhost:5000/order', {
+        fetch('https://frozen-anchorage-94808.herokuapp.com/order', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
