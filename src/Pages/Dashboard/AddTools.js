@@ -66,7 +66,8 @@ const AddTools = () => {
 
     return (
         <div>
-            <div className='flex justify-center'>
+            <h2 className="text-3xl mt-4 font-bold text-center text-emerald-400">Add Car Tools</h2>
+            <div className='flex justify-center mt-4'>
                 <form onSubmit={handleSubmit(onSubmit)}>
 
                     <div class="form-control w-full max-w-xs">

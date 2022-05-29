@@ -48,12 +48,12 @@ const ManageAllOrder = () => {
                             Swal.fire({
                                 title: 'Cancel the order successfully',
                                 showClass: {
-                                  popup: 'animate__animated animate__fadeInDown'
+                                    popup: 'animate__animated animate__fadeInDown'
                                 },
                                 hideClass: {
-                                  popup: 'animate__animated animate__fadeOutUp'
+                                    popup: 'animate__animated animate__fadeOutUp'
                                 }
-                              })
+                            })
 
                             // alert('Cancel the order successfully');
                             const remainingUsers = orders.filter(user => user._id !== id);
@@ -106,6 +106,7 @@ const ManageAllOrder = () => {
     return (
         <div>
 
+            <h2 className="text-3xl font-bold text-center text-emerald-400 mb-4">Manage All Orders</h2>
 
             <div class="overflow-x-auto">
                 <table class="table w-full">

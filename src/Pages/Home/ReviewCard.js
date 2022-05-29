@@ -1,19 +1,26 @@
 import React from 'react';
 import Rating from 'react-rating';
-import './Review.css'
+import './Review.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
+
 const ReviewCard = ({ review }) => {
   return (
     <div className="card w-96 bg-base-100 shadow-xl">
       <div className="card-body">
 
         <div className="card-actions flex items-center justify-evenly">
-
+          <div className='justify-center'>
+          <FontAwesomeIcon icon={faUser} size="3x"></FontAwesomeIcon>
+          </div>
           {/* avatar  */}
-          <div className="avatar">
+          {/* <div className="avatar">
+
             <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
               <img src="https://api.lorem.space/image/face?hash=3174" alt='' />
             </div>
-          </div>
+
+          </div> */}
 
           {/* review name  */}
           <div>

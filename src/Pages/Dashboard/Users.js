@@ -33,7 +33,8 @@ const Users = () => {
 
     return (
         <div>
-            <h2 className="text-2xl">All Users: {users.length}</h2>
+            {/* <h2 className="text-2xl">All Users: {users.length}</h2> */}
+            <h2 className="text-3xl font-bold text-center text-emerald-400 mb-4">All Users</h2>
 
             <div class="overflow-x-auto">
                 <table class="table w-full">
@@ -43,7 +44,7 @@ const Users = () => {
                             <th></th>
                             <th>Name</th>
                             <th>Role</th>
-                            <th>Delete Button</th>
+                            {/* <th>Delete Button</th> */}
                         </tr>
                     </thead>
                     <tbody>

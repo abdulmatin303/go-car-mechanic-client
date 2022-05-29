@@ -22,7 +22,8 @@ const MyReview = () => {
 
     return (
         <div>
-            <div className='add-review'>
+            <h2 className="text-2xl mt-6 text-center font-bold text-emerald-400">Add Your Review</h2>
+            <div className='add-review mt-6'>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <input  className='rounded-md p-2' {...register("name", { required: true, maxLength: 120 })} defaultValue={user.displayName} />
 

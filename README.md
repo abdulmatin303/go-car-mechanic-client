@@ -1,70 +1,56 @@
-# Getting Started with Create React App
+# Project Name : `Go-Car-Mechanic`
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
+## Live Site Link: 
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### `Features:`
 
-### `npm test`
+- In home page, car tools items will be displayed.
+- In home page, you can see Business Summary, Customer Reviews, Company Info and Contact form and finally footer section.
+- In the navbar, you can get tools section where you see different types of items.
+- In the navbar, you can see blogs section where you can learn differen types of react js questions and answers.
+- In the navbar, you can also see about section.
+- User can add an items.
+- Before add an item, user need to register first because that is a protected route.
+- User can register using email and password or google login system.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- After login, User can add an item, also change the quantity.
+- In the dashboard, user can create his profile.
+- In the dashboard, user can also create his porfolio.
+- During creating profile and portfolio, user can upload his image directly to the image hosting sites like imgbb using API.
+- In the dashboard, User can see his all orders.
+- User can also get the pay option from his my order section.
+- The payment system implement by stripe.
+- In the dashboard, User can also provide customers review. Displayed the review along with rating.
+- In the profile icon from nav bar, clicking the icon, user can see myProfile and myPortfolio option and see this.
 
-### `npm run build`
+- If User is an admin,
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- In the dashboard, An Admin can also create his profile.
+- An Admin can Add a product.
+- An Admin can manage his  products like delete his items.
+- An Admin can manage all orders like admin can delete the order that is not pay and also change the status shifted that is paid.
+- An Admin can see all the user lists.
+- An Admin can make another user admin.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### `Technology:`
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Tailwind
+- DaisyUI
+- React
+- React Router 6
+- Firebase
+- React stripe
+- React Query
+- React Hook Form
+- React Toastify
+- Sweet Alert
+- React Rating
+- React Firebase Hook
+- AOS Animation

@@ -39,7 +39,7 @@ const Dashboard = () => {
                         </div>
                     }
 
-                    {admin &&
+                    { admin &&
                         <div>
                             <li><Link to='/dashboard/createProfile'>Create Profile</Link></li>
                             <li><Link to='/dashboard/myProfile'>My Profile</Link></li>
